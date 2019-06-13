@@ -1,0 +1,22 @@
+<div class="container">
+	<div class="col-ms-8">
+		<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+			<div class="form-group">
+				<label >User Name</label>
+        <input class = "form-control" formControlName ="userName" type = "text" [ngClass]="{ 'is-invalid':  f.userName.errors && f.userName.touched}">
+        <div class="invalid-feedback" *ngIf = "f.userName.errors && f.userName.touched"> User Name is required</div>
+
+        	<label >Password</label>
+        <input class = "form-control" formControlName ="password" type = "password" [ngClass]="{ 'is-invalid':  f.password.errors && f.password.touched}">
+        <div class="invalid-feedback" *ngIf = "f.password.errors && f.password.touched"> Password is required</div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit" [disabled] = "loginForm.invalid">Login </button>
+      </div>
+    </form>
+
+    <div>
+      Create an Account <a routerLink="/signup" class="btn btn-link">Sign Up</a>
+    </div>
+  </div>
+</div>
